@@ -1,17 +1,21 @@
 const html = require('choo/html');
 
-module.exports = () => {
+module.exports = (state, emit) => {
   return html`
-    <div class="cats">
-      <ul class="cats-list">
-        <li>Moo</li>
-        <li>Worm</li>
-        <li>Party</li>
-        <li>Suki</li>
-        <li>Ghost of Rufus (R.I.P.)</li>
-        <li>Sofia</li>
-        <li>Simon</li>
-      </ul>
+    <div>
+      ${displayCats()}
     </div>  
   `
+
+  function displayCats() {
+    let cats = state.cats;
+    return cats.map(cat => {
+      return html`<li style=${state.style.catItem} id=${cat.id} onclick=${clickOneCat}>${cat.name}</li>`
+    })
+  }
+
+  function clickOneCat(e) {
+    let catID = e.target.id;
+    emit('clickOneCat', catID);
+  }
 }

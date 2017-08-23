@@ -5,7 +5,7 @@ let cats = require('./cats');
 
 module.exports = (view, state, emit) => {
   return html`
-    <div class="main">
+    <div class="main" style=${state.style.layout}>
       ${header(state, emit)}
       ${view(state, emit)}
     </div>

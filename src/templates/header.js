@@ -3,14 +3,14 @@ let html = require('choo/html');
 module.exports = (state, emit) => {
   return html`
           <div class="homepage">
-            <div class="header">
-              <h1 class="title">${state.header.bandName}</h1>
-              <h2 class="tag">${state.header.tagLine}</h2>
+            <div style=${state.style.header}>
+              <h1 style=${state.style.headerH1}>${state.header.bandName}</h1>
+              <h2 style=${state.style.headerH2}>${state.header.tagLine}</h2>
             </div> 
-            <div class="nav">
+            <div style=${state.style.navBar}>
               <ul>
-                <li class="much-nav-item"><a href="/">Home</a></li>
-                <li class="much-nav-item"><a href="/cats">Cats</a></li>
+                <li style=${state.style.navItem}><a href="/">Home</a></li>
+                <li style=${state.style.navItem}><a href="/cats">Cats</a></li>
               </ul>
             </div>  
           </div>  
