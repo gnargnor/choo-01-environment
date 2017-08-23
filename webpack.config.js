@@ -7,6 +7,7 @@ const config = {
   //   'eventsource-polyfill',
     path.resolve(__dirname, './src/index.js'),
   ],
+  devtool: 'cheap-eval-source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
